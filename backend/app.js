@@ -7,22 +7,25 @@ const express = require('express')
 const app = express()
 
 // routers
-
+const authRouter = require('./routes/auth-route')
 // middleware
+const errorHandler = require('./middleware/error-handler')
 
 // app.use(cors())
-// app.use(express.json());
+app.use(express.json());
 
 // routing
-// app.use('/api/v1/auth', authRouter)
+app.use('/api/v1/auth', authRouter)
 // app.use('/api/v1/product', productRouter)
 // app.use('/api/v1/user', authMiddleware, userRouter)
 // app.use('/api/v1/cart/item', authMiddleware, cartRouter)
 // app.use('/api/v1/checkout', checkoutRouter)
 
 // app.use(notFoundHandler)
-// app.use(errorHandler)
+app.use(errorHandler)
 
+
+// controller -> services -> models ->
 
 const port = process.env.PORT || 3000
 app.listen(port, () => {
