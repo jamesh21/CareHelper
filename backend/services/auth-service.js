@@ -3,7 +3,7 @@ const bcrypt = require('bcryptjs')
 const jwt = require("jsonwebtoken");
 const { BadRequestError, UnauthenticatedError } = require('../errors')
 
-class UsersService {
+class AuthService {
     register = async (email, password, name, roleId) => {
         if (!email || !name || !password == null || !roleId) {
             throw new BadRequestError('Email, name, password, or role Id was not provided')
@@ -85,4 +85,4 @@ class UsersService {
     }
 }
 
-module.exports = new UsersService()
+module.exports = new AuthService()

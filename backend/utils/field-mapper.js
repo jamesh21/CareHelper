@@ -18,7 +18,6 @@ const toDbFields = (nodeObject) => {
 }
 
 const toNodeFields = (dbObject) => {
-    console.log(dbObject)
     const nodeObject = {}
     const reverseMapping = {}
 
