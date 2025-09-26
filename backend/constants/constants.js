@@ -1,0 +1,4 @@
+const CAREGIVER_ROLE = 1
+const CARE_RECIPIENT_ROLE = 2
+
+module.exports = { CAREGIVER_ROLE, CARE_RECIPIENT_ROLE }

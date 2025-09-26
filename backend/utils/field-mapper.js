@@ -1,7 +1,9 @@
 const fieldMapping = {
     roleId: 'role_id',
     hashedPassword: 'password_hash',
-    userId: 'user_id'
+    userId: 'user_id',
+    caregiverId: 'caregiver_id',
+    careRecipientId: 'care_recipient_id'
 
 }
 
@@ -32,6 +34,7 @@ const toNodeFields = (dbObject) => {
             nodeObject[dbField] = dbValue
         }
     }
+
     return nodeObject
 
 }
