@@ -10,6 +10,7 @@ const app = express()
 const authRouter = require('./routes/auth-route')
 const userRouter = require('./routes/user-route')
 // middleware
+const authMiddleware = require('./middleware/authentication')
 const errorHandler = require('./middleware/error-handler')
 
 // app.use(cors())
@@ -17,7 +18,7 @@ app.use(express.json());
 
 // routing
 app.use('/api/v1/auth', authRouter)
-app.use('/api/v1/user', userRouter)
+app.use('/api/v1/user', authMiddleware, userRouter)
 // app.use('/api/v1/user', authMiddleware, userRouter)
 // app.use('/api/v1/cart/item', authMiddleware, cartRouter)
 // app.use('/api/v1/checkout', checkoutRouter)

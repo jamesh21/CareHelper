@@ -58,6 +58,11 @@ class UserService {
             return await userModel.getUsersCareGivers(userId)
         }
     }
+
+    getUserInfo = async (userId) => {
+        const user = await userModel.getUserFromDBWithID(userId)
+        return user
+    }
 }
 
 module.exports = new UserService()
