@@ -41,14 +41,13 @@ class AuthService {
      * @returns An object that holds a bearer token and user details
      */
     buildAuthResponse = (user) => {
-        const token = this.createJWT(user.email, user.name, user.userId, user.roleId)
+        const token = this.createJWT(user.email, user.name, user.userId)
         return {
             user:
             {
                 name: user.name,
                 email: user.email,
-                userId: user.userId,
-                roleId: user.roleId
+                userId: user.userId
             },
             token
         }
@@ -59,13 +58,12 @@ class AuthService {
      * @param {*} email 
      * @param {*} name 
      * @param {*} userId 
-     * @param {*} roleId 
      * @returns JWT bearer token
      */
-    createJWT = (email, name, userId, roleId) => {
+    createJWT = (email, name, userId) => {
         const token = jwt.sign(
             {
-                email, name, userId, roleId
+                email, name, userId
             }, process.env.JWT_SECRET,
             {
                 expiresIn: process.env.JWT_LIFETIME
